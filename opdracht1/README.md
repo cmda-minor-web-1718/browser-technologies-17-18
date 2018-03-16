@@ -6,6 +6,7 @@ The web is for everyone. Learn about Progressive enhancement
 
 ### Opdracht 1.1 - Break the Web
 
+https://docs.google.com/presentation/d/19a6mIf_GFPngIeJZXZoi-1VCQU8enFxl8Ml8VSAJBjs/edit?usp=sharing
 
 ### Opdracht 1.2 - Fork your OBA
 
@@ -35,6 +36,9 @@ The website doesn't use localstorage either. It would come in handy to use local
 ## 8. Mouse / trackpad
 Before I adapted the site, it was not possible to navigate through the website without using a mouse or trackpad. After I adapted the website, it is really easy to navigate to sports and persons. It even shows a message if it noticed you pressed tab.
 
+## Conclusion
+I didn't expect too much from the results. I knew the web app wasn't finished yet, and thus some exercises would not give very interesting points. By finishing this assignment I know what points I even more missed. I knew the web app wasn't finished, but now I know that I wasn't even remotely finished.
+
 # Device lab
 To test my web app, I used the device lab. The device lab is a place where you can test your website on several outdated devices.
 
@@ -52,3 +56,9 @@ The Kindle thing didn't work. All it said was that there was a problem loading t
 
 ## Windows tablet
 The Windows tablet loaded the page, and the loading spinner spinned like crazy, but nothing after that happened.
+
+## Screenreader
+I never used a screenreader before, so it was a big eye opener how hard it was to use a screenreader. Maybe if you are used to it, it becomes easier, but for me it was really hard to use. The website itself was kinda easy to use, but that was maybe because I know how to navigate through my website. What I did like, was that the screenreader reads the current window that has focus. Something that I hated was the fact that the screenreader doesn't know the difference between languages, and it just reads out in the language you filled in. If you have your pc in Dutch, but you are writing something in English (like I am now), it doesn't make sense, and the sentences come out really weird.
+
+# Conclusion
+I don't really know what to think of the results. Some of these devices are really outdated, and I highly doubt that any of my possible users are using one of these devices. Something to keep in mind though is that not every thing works like you would expect. Even when it works on my pc,doesn't necessarily mean that it works for everyone everywhere.
