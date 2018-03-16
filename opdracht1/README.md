@@ -25,7 +25,7 @@ The website is completely in black and white tones. The contrast between the ele
 ## 5. High speed internet
 The website is not really optimised for low speed internet, but it's not that bad. It takes around 6 seconds for the website to be interactive, and 8 seconds to fully load. The query doesn't take much time either. When the page is interactive, the call is executed and the results are placed on the website
 
-![Results of the network tab](https://i.imgur.com/kDSgsuJ)
+![Results of the network tab](https://i.imgur.com/kDSgsuJ.png)
 
 ## 6. Cookies
 The website doesn't use cookies. 
