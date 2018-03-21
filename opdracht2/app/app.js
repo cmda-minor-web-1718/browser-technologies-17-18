@@ -1,12 +1,11 @@
 //detect none support for details
 var detailCompitelity = 'open' in document.createElement('details');
-if (detailCompitelity) {
+if (!detailCompitelity) {
   var summarys = document.getElementsByTagName("summary");
   var details = document.getElementsByTagName("details");
 
   for(var i = 0; i < details.length; i++) {
     var tempChilderen = details[i].children;
-    //console.log((details[i].childNodes);
     for(var j = 0; j < tempChilderen.length; j++){
       if (tempChilderen[j].tagName !== "SUMMARY") {
         if (tempChilderen[j].classList){
