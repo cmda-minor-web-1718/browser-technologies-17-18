@@ -1,19 +1,31 @@
 # Browser Technologies
 //Robuuste, toegankelijke websites leren bouwen …
 
-## Opdracht 2 - 1, 2, 3 Feature Detectie
-//Wat laat je zien als een browser of gebruiker 'enhancement' niet kan tonen of zien? Hoe doe je Feature Detection en wat doe je als een techniek niet werkt?
-
-Werk 2 componenten uit in een demo. Je onderzoekt hoe je verschillende features door verschillende browsers worden ondersteund en hoe je voor goede fallback kan zorgen. Gebruik [html5test.com](https://html5test.com), [css3test.com](http://css3test.com) en [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/)
-
-- Per feature: Zoek uit hoe je deze kunt testen. Verzamel uitleg en artikelen. Bouw een (kleine) progressive enhanced demo (zonder extra tools, gewoon in 1 HTML file, zo simpel mogelijk). Test de feature (en fallback) op verschillende browsers en het Device Lab. Let op: Gebruik van polyfills is niet toegestaan.
-- Post je 2 demo’s op GitHub met uitleg in een README file. Wat is de feature? Welke browsers/devices ondersteunen deze wel/niet? Hoe zorg je dat de fallback nuttig is?
-
 Beoordelingscriteria
 - 2 componenten zijn onderzocht en er is een demo gemaakt.
 - De code staat in een repository op GitHub.
 - Een Readme is toegevoegd met, per feature:
-  -	Een beschrijving van de feature.
-  - Bronnen van uitleg en gebruikte artikelen.
-  -	Welke browsers/devices ondersteunen deze wel/niet.
-  -	Een beschrijving hoe de fallback werkt.
+-	Een beschrijving van de feature.
+- Bronnen van uitleg en gebruikte artikelen.
+-	Welke browsers/devices ondersteunen deze wel/niet.
+-	Een beschrijving hoe de fallback werkt.
+
+## Carrousel
+
+![The carrousel](https://i.imgur.com/GQWhJzN.png)
+
+The carrousel is a rotating display of several articles. You can add unlimited articles, and the carrousel will still work. The demo runs [here](http://rick712.github.io/browser-technologies/opdracht2/carrousel).
+
+The carrousel only works when Javascript is enabled. When Javascript is disabled, all the articles are displayed next to eachother. In Javascript, the script checks how many articles there are, and gives the parent element a width, depending on the number of articles. When an arrow is clicked, the parent element changes position, depending on the current position of the element. The parent element changes by 50vw at the time.
+
+![The carrousel when JS is disabled](https://i.imgur.com/ovNLD6Z.png)
+
+## Accordeon
+
+![The accordeon](https://i.imgur.com/9XZK8do.png)
+
+The accordeon is a number of details elements that display some information when you click on them. Only one accordeon opens at the time. Some browsers don't support the `<details>` element. When this is the case, the browser shows the header and the content inside the element by default.
+
+When Javascript is enabled, only one part of the accordeon opens. When Javascript is disabled, all the parts can be opened.
+
+![The accordeon when JS is disabled](https://i.imgur.com/5wqzK63.png)
