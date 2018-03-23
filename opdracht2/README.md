@@ -22,6 +22,8 @@ The carrousel only works when Javascript is enabled. When Javascript is disabled
 
 ## Accordeon
 
+[here](http://rick712.github.io/browser-technologies/opdracht2/accordeon) is the link to the accordeon
+
 ![The accordeon](https://i.imgur.com/9XZK8do.png)
 
 The accordeon is a number of details elements that display some information when you click on them. Only one accordeon opens at the time. Some browsers don't support the `<details>` element. When this is the case, the browser shows the header and the content inside the element by default.
