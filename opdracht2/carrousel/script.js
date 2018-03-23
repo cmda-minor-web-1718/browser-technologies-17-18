@@ -11,19 +11,19 @@
     left = 0;
     
     arrowL.addEventListener('click', function() {
-      if (left <= -50) {}
-      else {
-        left = left + 50;
-        carrousel.style.left = left + 'vw';
-        console.log(left + ' arrowL')
-        return left
-      }
+        if (left >= 0) {}
+        else {
+            left = left + 50;
+            carrousel.style.left = left + 'vw';
+            return left
+        }
     })
     
     arrowR.addEventListener('click', function() {
-      left = left - 50;
-      carrousel.style.left = left + 'vw';
-      console.log(left + ' arrowR')
-      return left
+        if (left > -(elements / 2 * 100 - 100)) { 
+            left = left - 50;
+            carrousel.style.left = left + 'vw';
+            return left
+         }
     })
   })()

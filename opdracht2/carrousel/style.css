@@ -13,8 +13,9 @@
     display: flex;
     flex-wrap: no-wrap;
     position: relative;
+    left: 0;
     transition: 
-      left .3s ease;
+      left .5s ease-out;
 }
 
 .container .carrousel article {
