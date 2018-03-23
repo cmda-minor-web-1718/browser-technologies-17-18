@@ -22,7 +22,7 @@ Beoordelingscriteria
 
 ## Harmonica
 [Live Demo](https://casburggraaf.github.io/browser-technologies/opdracht2/harmonica/)
-Content is visable on all devices
+Content is visible on all devices
 Harmonica effect is tested on
 - Min ie9
 - All Chrome
