@@ -1,3 +1,4 @@
+
 # Browser Technologies
 //Robuuste, toegankelijke websites leren bouwen …
 
@@ -17,3 +18,24 @@ Beoordelingscriteria
   - Bronnen van uitleg en gebruikte artikelen.
   -	Welke browsers/devices ondersteunen deze wel/niet.
   -	Een beschrijving hoe de fallback werkt.
+
+
+## Harmonica
+[Live Demo](https://casburggraaf.github.io/browser-technologies/opdracht2/harmonica/)
+Content is visable on all devices
+Harmonica effect is tested on
+- Min ie9
+- All Chrome
+- Mobile devices(touch)
+- Keyboard and screenreader support
+
+Ie8 is only possible with id's on detail element or a function that everything is folded en unfolded on click
+
+## File upload
+[Live Demo](https://casburggraaf.github.io/browser-technologies/opdracht2/file-upload/)
+Function is available on every device that supports file type input.
+Preview is available on every device that supports the [FileReader API](https://caniuse.com/#feat=filereader)
+
+Fallbacks that can be used are:
+- A preview for the image that is rendered by the backend after the submit button is used
+-  A fallback is input file is not supported to enable to send the picture by href:mailto.

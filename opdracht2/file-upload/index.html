@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image picker</title>
+  <style media="screen">
+    body {
+      background-color: #eee;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: rgb(44, 69, 91);
+      color: rgba(44, 69, 91, 0.8);
+    }
+
+    img {
+      display: none;
+      width: 300px;
+    }
+
+    .enriched img {
+      display: block;
+    }
+
+    @supports (display: flex) {
+      body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="placeholder.png">
+  <form class="" action="" method="">
+    <input id="inputUpload" type="file" accept="image/*">
+    <input type="submit">
+  </form>
+
+  <script>
+    if (window.FileReader) {
+      document.getElementsByTagName("BODY")[0].setAttribute('class', "enriched");
+
+      var input = document.getElementById("inputUpload");
+
+      if (document.addEventListener) {
+        input.addEventListener("change", fileChange, false);
+      }
+
+      function fileChange() {
+        var fileReader = new FileReader();
+        var inputPhoto = input.files[0];
+
+        if (inputPhoto) {
+          fileReader.readAsDataURL(inputPhoto);
+        }
+
+        fileReader.onload = function () {
+          document.getElementsByTagName("IMG")[0].setAttribute("src", fileReader.result);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

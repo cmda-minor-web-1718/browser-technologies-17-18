@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fav Teacher</title>
+  <style media="screen">
+    body {
+      background-color: #eee;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: rgb(44, 69, 91);
+      color: rgba(44, 69, 91, 0.8);
+    }
+
+    .usupportsDetails {
+      display: none;
+    }
+
+    @supports (display: flex) {
+      body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .header {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hideDetails {
+      display: none;
+    }
+
+
+    details {
+      display: block;
+    }
+  </style>
+  <script>
+    document.createElement("details");
+    document.createElement("summary");
+  </script>
+</head>
+<body>
+  <a class="header" href="#">
+    <h1>Fav Teacher</h1>
+  </a>
+
+  <details>
+    <summary class="appel">Koop</summary>
+    <p>Maecenas et sem eu lectus condimentum interdum.</p>
+    <p>Maecenas vel risus sit amet dui sollicitudin feugiat sed et metus.</p>
+  </details>
+
+  <details>
+    <summary>Koop</summary>
+    <p>Maecenas et sem eu lectus condimentum interdum.</p>
+    <p>Maecenas vel risus sit amet dui sollicitudin feugiat sed et metus.</p>
+  </details>
+
+  <details>
+    <summary>Koop</summary>
+    <p>Maecenas et sem eu lectus condimentum interdum.</p>
+    <p>Maecenas vel risus sit amet dui sollicitudin feugiat sed et metus.</p>
+  </details>
+
+  <script>
+    //detect none support for details
+    var detailCompitelity = 'open' in document.createElement('details');
+    if (!detailCompitelity) {
+      var summarys = document.getElementsByTagName("summary");
+      var details = document.getElementsByTagName("details");
+
+      for(var i = 0; i < details.length; i++) {
+        var tempChilderen = details[i].getElementsByTagName("*");
+        for(var j = 0; j < tempChilderen.length; j++){
+          if (tempChilderen[j].tagName !== "SUMMARY") {
+            if (tempChilderen[j].classList){
+              tempChilderen[j].classList.add("hideDetails")
+            } else {
+              tempChilderen[j].setAttribute('class', tempChilderen[j].getAttribute('class') + ' ' + "hideDetails");
+            }
+          }
+        }
+      }
+
+      for(var i = 0; i < summarys.length; i++){
+        if (document.addEventListener) {
+          summarys[i].addEventListener("click", clickSummery, false);
+        }
+        else {
+          summarys[i].attachEvent("onclick", clickSummery);
+        }
+      }
+    }
+
+    function clickSummery() {
+      var tempdetails = this.parentNode.getElementsByTagName("*");
+      for(var i = 0; i < tempdetails.length; i++){
+        if (tempdetails[i].tagName !== "SUMMARY") {
+          if (tempdetails[i].classList){
+            if (tempdetails[i].classList == "hideDetails") {
+              tempdetails[i].classList.remove("hideDetails");
+            } else {
+              tempdetails[i].classList.add("hideDetails");
+            }
+          } else {
+            if (tempdetails[i].getAttribute('class').indexOf("hideDetails") > -1) {
+              tempdetails[i].setAttribute('class', tempdetails[i].getAttribute('class').replace("hideDetails", ' '));
+            } else {
+              tempdetails[i].setAttribute('class', tempdetails[i].getAttribute('class') + ' ' + "hideDetails");
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
