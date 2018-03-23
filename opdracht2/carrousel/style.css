@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+.container {
+    margin-top: 1em;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container .carrousel {
+    display: flex;
+    flex-wrap: no-wrap;
+    position: relative;
+    transition: 
+      left .3s ease;
+}
+
+.container .carrousel article {
+    width: 50vw;
+    padding: 1em;
+}
+
+.arrows a {
+    position: absolute;
+    font-size: 3rem;
+}
+  
+.right {
+    right: 1em;
+}
+  
+.left {
+    left: 1em;
+}
+  
+.arrows a:hover {
+    cursor: pointer;
+}
