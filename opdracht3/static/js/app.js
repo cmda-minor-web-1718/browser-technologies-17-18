@@ -7,8 +7,6 @@
     cheerSound: new Audio('sound/cheer.mp3'),
     booSound: new Audio('sound/boo.mp3'),
     init: function() {
-      console.log(this.homeScore);
-
       if(typeof new XMLHttpRequest().responseType === 'string' && (document['querySelector']&&document['querySelectorAll'])!=null && document.documentElement.classList){
         setInterval(function () {
           api.request();
@@ -41,17 +39,20 @@
         if (request.status >= 200 && request.status < 400) {
           console.log(request.responseText);
           var htmlResponse = parser.parseFromString(request.responseText, "text/html");
-          if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore) {
+
+          if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore || htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
             document.querySelector(".scoreAlert").classList.remove("scored");
+            document.querySelector(".scoreAlert").classList.add("scored");
+            
+          }
+
+          if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore) {
             app.homeScore = htmlResponse.querySelector(".home h2").innerHTML;
             document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The home team scored! It's ${app.homeScore}-${app.awayScore}`;
-            document.querySelector(".scoreAlert").classList.add("scored");
             document.querySelector(".home h2").innerHTML = app.homeScore;
           } else if (htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
-            document.querySelector(".scoreAlert").classList.remove("scored");
             app.awayScore = htmlResponse.querySelector(".away h2").innerHTML;
             document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The away team scored! It's ${app.homeScore}-${app.awayScore}`;
-            document.querySelector(".scoreAlert").classList.add("scored");
             document.querySelector(".away h2").innerHTML = app.awayScore;
           }
 
