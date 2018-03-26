@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style/style.css">
+  <title>Score submit</title>
+</head>
+<body>
+  <main>
+    <div class="home">
+      <h3>Home</h3>
+      <h2><%=score.home%></h2>
+    </div>
+    <div class="away">
+      <h3>Away</h3>
+      <h2><%=score.away%></h2>
+    </div>
+    <form action="/submit?scored=home" method="post">
+      <input type="submit" value="Scored Home">
+    </form>
+    <form action="/submit?scored=away" method="post">
+      <input type="submit" value="Scored Away">
+    </form>
+  </main>
+</body>
+</html>

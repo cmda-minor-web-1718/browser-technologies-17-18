@@ -8,18 +8,18 @@
   <noscript>
     <meta http-equiv="refresh" content="5">
   </noscript>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/style.css">
   <title>ScoreBoard</title>
 </head>
 <body>
   <main>
     <div class="home">
       <h3>Home</h3>
-      <h2>0</h2>
+      <h2><%=score.home%></h2>
     </div>
     <div class="away">
       <h3>Away</h3>
-      <h2>2</h2>
+      <h2><%=score.away%></h2>
     </div>
     <div class="time">
       <h3><span>00</span>:<span>00</span></h3>
@@ -28,6 +28,10 @@
       <h2>First Half</h2>
     </div>
   </main>
-  <script type="text/javascript" src="app.js" charset="utf-8"></script>
+  <section class="scoreAlert">
+    <h2></h2>
+    <!-- <h2>SCOOOORREEEE, The home team scored! It's 2-0</h2> -->
+  </section>
+  <script type="text/javascript" src="js/app.js" charset="utf-8"></script>
 </body>
 </html>
