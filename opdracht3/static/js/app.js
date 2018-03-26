@@ -22,8 +22,20 @@
           app.booSound.play();
         }
       }
+    },
+    notification: function(text) {
+      if(window.Notification){
+        if (window.Notification && Notification.permission !== "granted") {
+          Notification.requestPermission(function (status) {
+            if (Notification.permission !== status) {
+              Notification.permission = status;
+            }
+          });
+        }
+        var n = new Notification(text);
+      }
     }
-  }
+  };
 
   const api = {
     url: "localhost:3000",
@@ -43,17 +55,20 @@
           if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore || htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
             document.querySelector(".scoreAlert").classList.remove("scored");
             document.querySelector(".scoreAlert").classList.add("scored");
-            
           }
 
           if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore) {
             app.homeScore = htmlResponse.querySelector(".home h2").innerHTML;
             document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The home team scored! It's ${app.homeScore}-${app.awayScore}`;
             document.querySelector(".home h2").innerHTML = app.homeScore;
+            app.playSound("home");
+            app.notification(`SCOOOORREEEE, The home team scored! It's ${app.homeScore}-${app.awayScore}`);
           } else if (htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
             app.awayScore = htmlResponse.querySelector(".away h2").innerHTML;
             document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The away team scored! It's ${app.homeScore}-${app.awayScore}`;
             document.querySelector(".away h2").innerHTML = app.awayScore;
+            app.playSound("away");
+            app.notification(`SCOOOORREEEE, The away team scored! It's ${app.homeScore}-${app.awayScore}`)
           }
 
         } else {
