@@ -55,11 +55,47 @@ main {
   border-top: 2px solid #c0c0c0;
 }
 
+.scoreAlert {
+  position: absolute;
+  top: 5%;
+  background-color: #def3d5;
+  border: 2px solid #627c5a;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+.scoreAlert h2 {
+  color: #627c5a;
+  text-transform: uppercase;
+  padding: 0.5em 0.8em;
+}
+
+.scoreAlert.scored {
+  -webkit-animation: scoreAlert 5s;
+  animation: scoreAlert 5s;
+}
+
+
+@-webkit-keyframes scoreAlert {
+  0%   {opacity: : 0;}
+  25%  {opacity: 1;}
+  65%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes scoreAlert {
+  0%   {opacity: : 0;}
+  25%  {opacity: 1;}
+  65%  {opacity: 1;}
+  100% {opacity: 0;}
+}
+
 @supports (display:flex) {
   body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   main > * {
