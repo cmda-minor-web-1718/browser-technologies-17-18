@@ -1,0 +1,52 @@
+<% include header %>
+
+<main>
+    <h1>Tosti boodschappenlijst</h1>
+    <p>Eet je ook zo graag tosti's, maar krijg je ook een mental breakdown wanneer je op een drukke zaterdag middag in de Vomar staat, waardoor je huilend de supermarkt uitrent om vervolgens zonder je broodnodige kaas weg te gaan? Gelukkig kan je op deze website je persoonlijke boodschappenlijst samenstellen zodat je rustig boodschappen kan doen zonder in te storten omdat je vergeten bent wat je wilde halen.</p>
+    <p>Volg de stappen om je tosti te maken, en uiteindelijk krijg je een overzicht van de producten met de bijbehorende prijs.</p>
+
+    <form method="post" action="/">
+        <section>
+            <select name="broodsoort">
+                <% for (var i in list.broodsoort) {
+                    if (list.broodsoort.hasOwnProperty(i)) { %>
+                        <option value="<%= list.broodsoort[i].name %> <%= list.broodsoort[i].price %>" name="<%= list.broodsoort[i].name %>"><%= list.broodsoort[i].name %> <%= list.broodsoort[i].price %></option>
+                <%    }
+                } %>
+            </select>
+
+            <select name="kaassoort">
+                <% for (var i in list.kaassoort) {
+                    if (list.kaassoort.hasOwnProperty(i)) { %>
+                        <option value="<%= list.kaassoort[i].name %> <%= list.kaassoort[i].price %>" name="<%= list.kaassoort[i].name %>"><%= list.kaassoort[i].name %> <%= list.kaassoort[i].price %></option>
+                <%    }
+                } %>
+            </select>
+
+            <div>
+                <% for (var i in list.extra) {
+                    if (list.extra.hasOwnProperty(i)) { %>
+                <div>
+                    <input type="checkbox" name="extra" value="<%= list.extra[i].price %>">
+                    <label id="<%= list.extra[i].name %>" value="<%= list.extra[i].name %>"><%= list.extra[i].name %> <%= list.extra[i].price %></label>
+                </div> 
+                <%    }
+                } %>
+            </div>
+
+            <div>
+                <% for (var i in list.saus) {
+                    if (list.saus.hasOwnProperty(i)) { %>
+                <div>
+                    <input type="checkbox" name="saus" value="<%= list.saus[i].price %>">
+                    <label id="<%= list.saus[i].name %>" value="<%= list.saus[i].name %>"><%= list.saus[i].name %> <%= list.saus[i].price %></label>
+                </div>
+                <%    }
+                } %>
+            </div>
+        </section>
+        <input type="submit"></input>
+    </form>
+</main>
+
+<% include footer %>
