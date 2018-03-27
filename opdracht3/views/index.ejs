@@ -1,11 +1,11 @@
 <% include header %>
 
 <main>
-    <h1>Tosti boodschappenlijst</h1>
+    <h1><a href="/">Tosti boodschappenlijst</a></h1>
     <p>Eet je ook zo graag tosti's, maar krijg je ook een mental breakdown wanneer je op een drukke zaterdag middag in de Vomar staat, waardoor je huilend de supermarkt uitrent om vervolgens zonder je broodnodige kaas weg te gaan? Gelukkig kan je op deze website je persoonlijke boodschappenlijst samenstellen zodat je rustig boodschappen kan doen zonder in te storten omdat je vergeten bent wat je wilde halen.</p>
     <p>Volg de stappen om je tosti te maken, en uiteindelijk krijg je een overzicht van de producten met de bijbehorende prijs.</p>
 
-    <form method="post" action="/">
+    <form method="post" action="/prijs">
         <section>
             <select name="broodsoort">
                 <% for (var i in list.broodsoort) {
@@ -45,8 +45,9 @@
                 } %>
             </div>
         </section>
-        <input type="submit"></input>
+        <input type="submit" class="button"></input>
     </form>
+
 </main>
 
 <% include footer %>

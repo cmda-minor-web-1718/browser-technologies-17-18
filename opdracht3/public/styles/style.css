@@ -17,6 +17,11 @@ h1 {
     margin: 1em 0;
 }
 
+h1 a {
+    color: black;
+    text-decoration: none;
+}
+
 p,
 label {
     font-family: serif;
@@ -45,6 +50,14 @@ main p {
 
 form > section > div {
     display: block;
+}
+
+.button {
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 1em 2em;
+    -webkit-appearance: button;
 }
 
 form > section > div > div {

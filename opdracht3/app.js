@@ -105,7 +105,7 @@ app.get('/', function(req, res){
     res.render('index.ejs', {list: tostiList})
 })
 
-app.post('/', function(req, res) {
+app.post('/prijs', function(req, res) {
     const {broodsoort, kaassoort, extra, saus} = req.body
     let broodworth = broodsoort.substr(broodsoort.length - 4, broodsoort.length)
     let kaasworth = kaassoort.substr(kaassoort.length - 4, kaassoort.length)
@@ -141,8 +141,9 @@ app.post('/', function(req, res) {
     sum = sum + Number(broodworth) + Number(kaasworth)
     console.log(sum)
     console.log(req.body)
-    res.redirect('/')
+    res.render('prijs.ejs', {prijs: sum})
+    // res.redirect('/')
 })
-
+ 
 app.listen(port, function(){
 })
