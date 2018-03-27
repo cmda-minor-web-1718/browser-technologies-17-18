@@ -13,12 +13,14 @@ self.addEventListener('push', function(event) {
     var sound = "sound/cheer.mp3"
 
     self.clickTarget = data.clickTarget;
-
-    event.waitUntil(self.registration.showNotification(title, {
-        body: message,
-        tag: 'push-demo'
-        // icon: icon,
-        // badge: icon,
-        // sound: sound
-    }));
+    console.log(event);
+    event.waitUntil(
+      self.registration.showNotification(title, {
+          body: message,
+          tag: 'push-demo'
+          // icon: icon,
+          // badge: icon,
+          // sound: sound
+      })
+    );
 });
