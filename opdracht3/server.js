@@ -17,7 +17,6 @@ express()
   .post('/submit', scoreSubmit)
   .post('/subscribe', subscribe)
   .post('/unsubscribe', unsubscribe)
-  .get('/notify/all', notify)
   //.use(notFound)
   .listen(3000)
 
@@ -65,8 +64,10 @@ function scoreInput(req, res) {
 function scoreSubmit(req, res) {
   if (req.query.scored === "home") {
     score.home += 1;
+    pushNotif(`SCOOOORREEEE, The home team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal HomeTeam`);
   } else if (req.query.scored === "away") {
     score.away += 1;
+    pushNotif(`SCOOOORREEEE, The away team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal AwayTeam`)
   }
   res.render('submit.ejs', {score:score});
 }
@@ -100,16 +101,7 @@ function unsubscribe(req, res) {
   res.send('Subscription removed!');
 }
 
-function notify(req, res) {
-  if (req.get('auth-secret') != AUTH_SECRET) {
-    console.log("Missing or incorrect auth-secret header. Rejecting request.");
-    return res.sendStatus(401);
-  }
-
-  let message = req.query.message || `Willy Wonka's chocolate is the best!`;
-  let clickTarget = req.query.clickTarget || `http://www.favoritemedium.com`;
-  let title = req.query.title || `Push notification received!`;
-
+function pushNotif(message, clickTarget, title) {
   subscribers.forEach(pushSubscription => {
     //Can be anything you want. No specific structure necessary.
     let payload = JSON.stringify({
@@ -128,6 +120,4 @@ function notify(req, res) {
       console.log("Body : " + JSON.stringify(error.body));
     });
   });
-
-  res.send('Notification sent!');
 }
