@@ -18,7 +18,7 @@ express()
   .post('/subscribe', subscribe)
   .post('/unsubscribe', unsubscribe)
   //.use(notFound)
-  .listen(3000)
+  .listen(3002)
 
 let subscribers = [];
 
