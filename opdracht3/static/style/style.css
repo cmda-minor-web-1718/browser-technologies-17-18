@@ -55,6 +55,60 @@ main {
   border-top: 2px solid #c0c0c0;
 }
 
+.notify {
+  display: none;
+  background-color: #f9f9f9;
+}
+
+.notify.supported {
+  display: flex;
+}
+
+.notify button {
+  height: 100%;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: #808080;
+  border-top: 2px solid #c0c0c0;
+  text-transform: uppercase;
+}
+
+.notify.failed {
+  background-color: rgb(240, 100, 60);
+  color: white;
+}
+.notify.subscribed {
+  background-color: #63b483;
+}
+
+.notify.failed button, .notify.subscribed button{
+  color: white;
+}
+
+.notify.failed button:hover {
+  cursor: inherit;
+  background-color: rgb(240, 100, 60);
+}
+
+.notify.subscribed button:hover {
+  cursor: inherit;
+  background-color: #63b483;
+}
+
+.notify button:hover {
+  cursor: pointer;
+  background-color: #63b483;
+  color: white;
+  outline: none;
+}
+
+.notify button:focus {
+  outline: none;
+}
+
 .scoreAlert {
   position: absolute;
   top: 5%;
@@ -132,14 +186,14 @@ input[type=submit]:hover {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.5fr 1fr auto;
+    grid-template-rows: 1.5fr 1fr 0.8fr;
     width: 80%;
     max-width: 20em;
     height: 80%;
     max-height: 24em;
   }
 
-  .time, .half {
+  .time, .half, .notify{
     grid-column: 1 / 3;
   }
 }

@@ -6,11 +6,12 @@
     awayScore: document.querySelector(".away h2").innerHTML,
     cheerSound: new Audio('sound/cheer.mp3'),
     booSound: new Audio('sound/boo.mp3'),
+    pushApiSup: false,
     init: function() {
       notify.init();
-      if(typeof new XMLHttpRequest().responseType === 'string' && (document['querySelector']&&document['querySelectorAll'])!=null && document.documentElement.classList){
+      if(typeof new XMLHttpRequest().responseType === 'string' && (document['querySelector']&& document['querySelectorAll'])!=null && document.documentElement.classList && this.pushApiSup === false){
         setInterval(function () {
-          //api.request();
+          api.request();
         }, 5000)
       }
     },
@@ -26,39 +27,51 @@
     },
     notification: function(text) {
       if(window.Notification){
-        if (window.Notification && Notification.permission !== "granted") {
-          Notification.requestPermission(function (status) {
-            if (Notification.permission !== status) {
-              Notification.permission = status;
-            }
-          });
+        console.log(this.pushApiSup);
+        if (this.pushApiSup === false) {
+          if (window.Notification && Notification.permission !== "granted") {
+            Notification.requestPermission(function (status) {
+              if (Notification.permission !== status) {
+                Notification.permission = status;
+              }
+            });
+          }
+          var options = {
+            body: text,
+            icon: "style/notify.png"
+          }
+          var n = new Notification("GOOOAAALLEEE", options);
         }
-        var n = new Notification(text);
       }
     }
   };
 
   const notify = {
-    url: 'http://localhost:3000/subscribe',
+    url: `${window.location.href}subscribe`,
     applicationServerPublicKey: "BDxQN5kMHQ4x47haSS9xIbXQWB3r5PHIVSDIM5HZD4k6hOPEGK_t5fCCJrIAzRBr5lf2KSuBf7W0xaTykXotzeg",
     serviceWorkerName: "sw.js", //INPORTEND NOT IS ASSET FOLDER!!
     isSubscribed: false,
     swRegistration: null,
     init: function() {
-      const _this = this;
-      Notification.requestPermission().then(function (status) {
-        if (status === 'denied') {
-            console.log('[Notification.requestPermission] The user has blocked notifications.');
-            disableAndSetBtnMessage('Notification permission denied');
-        } else if (status === 'granted') {
-            console.log('[Notification.requestPermission] Initializing service worker.');
-            _this.initialiseServiceWorker();
-        }
-      });
-      document.querySelector(".away").addEventListener("click", function () {
-        _this.subscribe();
-        console.log(_this);
-      })
+      if ('PushManager' in window) {
+        app.pushApiSup = true;
+        document.querySelector(".notify").classList.add("supported")
+        const _this = this;
+        Notification.requestPermission().then(function (status) {
+          if (status === 'denied') {
+              console.log('[Notification.requestPermission] The user has blocked notifications.');
+              _this.disableAndSetBtnMessage('Notification permission denied');
+          } else if (status === 'granted') {
+              console.log('[Notification.requestPermission] Initializing service worker.');
+              _this.initialiseServiceWorker();
+          }
+        });
+        document.querySelector(".notify:not(.failed):not(.subscribed)").addEventListener("click", function () {
+          if(!this.classList.contains("failed") && !this.classList.contains("subscribed")){
+            _this.subscribe();
+          }
+        });
+      }
     },
     initialiseServiceWorker: function () {
       if ('serviceWorker' in navigator) {
@@ -93,7 +106,6 @@
         disableAndSetBtnMessage('Push messaging unsupported');
         return;
       }
-      console.log();
       // We need the service worker registration to check for a subscription
       navigator.serviceWorker.ready.then(function(reg) {
         // Do we already have a push message subscription?
@@ -103,12 +115,11 @@
               console.log('Not yet subscribed to Push');
 
               _this.isSubscribed = false;
-              //makeButtonSubscribable();
             } else {
               // initialize status, which includes setting UI elements for subscribed status
               // and updating Subscribers list via push
               _this.isSubscribed = true;
-              //makeButtonUnsubscribable();
+              _this.disableAndSetBtnMessage();
             }
           })
           .catch(function(err) {
@@ -136,28 +147,15 @@
             var key = subscription.getKey('p256dh');
             var auth = subscription.getKey('auth');
             _this.sendSubscriptionToServer(endpoint, key, auth);
+
             _this.isSubscribed = true;
-            //makeButtonUnsubscribable();
+            _this.disableAndSetBtnMessage();
           })
           .catch(function(e) {
             // A problem occurred with the subscription.
             console.log('Unable to subscribe to push.', e);
           });
       });
-    },
-    urlB64ToUint8Array: function(base64String) {
-      const padding = '='.repeat((4 - base64String.length % 4) % 4);
-      const base64 = (base64String + padding)
-        .replace(/\-/g, '+')
-        .replace(/_/g, '/');
-
-      const rawData = window.atob(base64);
-      const outputArray = new Uint8Array(rawData.length);
-
-      for (var i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-      }
-      return outputArray;
     },
     sendSubscriptionToServer: function(endpoint, key, auth) {
       var encodedKey = btoa(String.fromCharCode.apply(null, new Uint8Array(key)));
@@ -199,6 +197,30 @@
 
           makeButtonSubscribable(endpoint);
         });
+    },
+    disableAndSetBtnMessage: function(message) {
+      if (this.isSubscribed === true) {
+        document.querySelector(".notify button").innerHTML = "Subscribed";
+        document.querySelector(".notify").classList.add("subscribed");
+        //document.querySelector(".notify button").removeEventListener("click")
+      } else {
+        document.querySelector(".notify button").innerHTML = message;
+        document.querySelector(".notify").classList.add("failed");
+      }
+    },
+    urlB64ToUint8Array: function(base64String) {
+      const padding = '='.repeat((4 - base64String.length % 4) % 4);
+      const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+      const rawData = window.atob(base64);
+      const outputArray = new Uint8Array(rawData.length);
+
+      for (var i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+      }
+      return outputArray;
     }
   }
 

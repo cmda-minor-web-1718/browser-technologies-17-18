@@ -16,7 +16,6 @@ express()
   .get('/submit.html', scoreInput)
   .post('/submit', scoreSubmit)
   .post('/subscribe', subscribe)
-  .post('/unsubscribe', unsubscribe)
   //.use(notFound)
   .listen(3002)
 
@@ -91,17 +90,8 @@ function subscribe(req, res) {
  res.json({mess:'Subscription accepted!'});
 }
 
-function unsubscribe(req, res) {
-  let endpoint = req.body['notificationEndPoint'];
-
-  subscribers = subscribers.filter(subscriber => {
-    endpoint == subscriber.endpoint
-  });
-
-  res.send('Subscription removed!');
-}
-
 function pushNotif(message, clickTarget, title) {
+  console.log(subscribers);
   subscribers.forEach(pushSubscription => {
     //Can be anything you want. No specific structure necessary.
     let payload = JSON.stringify({
