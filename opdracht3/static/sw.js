@@ -17,7 +17,8 @@ self.addEventListener('push', function(event) {
     event.waitUntil(
       self.registration.showNotification(title, {
           body: message,
-          tag: 'push-demo'
+          tag: 'push-demo',
+          renotify: true
           // icon: icon,
           // badge: icon,
           // sound: sound

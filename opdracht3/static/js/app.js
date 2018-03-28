@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const app = {
+  var app = {
     homeScore: document.querySelector(".home h2").innerHTML,
     awayScore: document.querySelector(".away h2").innerHTML,
     cheerSound: new Audio('sound/cheer.mp3'),
@@ -27,7 +27,6 @@
     },
     notification: function(text) {
       if(window.Notification){
-        console.log(this.pushApiSup);
         if (this.pushApiSup === false) {
           if (window.Notification && Notification.permission !== "granted") {
             Notification.requestPermission(function (status) {
@@ -46,8 +45,8 @@
     }
   };
 
-  const notify = {
-    url: `${window.location.href}subscribe`,
+  var notify = {
+    url: window.location.href + "subscribe",
     applicationServerPublicKey: "BDxQN5kMHQ4x47haSS9xIbXQWB3r5PHIVSDIM5HZD4k6hOPEGK_t5fCCJrIAzRBr5lf2KSuBf7W0xaTykXotzeg",
     serviceWorkerName: "sw.js", //INPORTEND NOT IS ASSET FOLDER!!
     isSubscribed: false,
@@ -56,7 +55,7 @@
       if ('PushManager' in window) {
         app.pushApiSup = true;
         document.querySelector(".notify").classList.add("supported")
-        const _this = this;
+        var _this = this;
         Notification.requestPermission().then(function (status) {
           if (status === 'denied') {
               console.log('[Notification.requestPermission] The user has blocked notifications.');
@@ -82,7 +81,7 @@
       }
     },
     handleSWRegistration: function(reg) {
-      const _this = this;
+      var _this = this;
       if (reg.installing) {
          console.log('Service worker installing');
        } else if (reg.waiting) {
@@ -94,7 +93,7 @@
        notify.initialiseState(reg);
     },
     initialiseState: function(reg) {
-      const _this = this;
+      var _this = this;
       if (!(reg.showNotification)) {
         console.log('Notifications aren\'t supported on service workers.');
         disableAndSetBtnMessage('Notifications unsupported');
@@ -128,7 +127,7 @@
       });
     },
     subscribe: function() {
-      const _this = this;
+      var _this = this;
       navigator.serviceWorker.ready.then(function(reg) {
         var subscribeParams = {
           userVisibleOnly: true
@@ -177,27 +176,6 @@
         //return JSON.parse(res);
       });
     },
-    unsubscribe: function() {
-      var endpoint = null;
-      swRegistration.pushManager.getSubscription()
-        .then(function(subscription) {
-          if (subscription) {
-            endpoint = subscription.endpoint;
-            return subscription.unsubscribe();
-          }
-        })
-        .catch(function(error) {
-          console.log('Error unsubscribing', error);
-        })
-        .then(function() {
-          removeSubscriptionFromServer(endpoint);
-
-          console.log('User is unsubscribed.');
-          isSubscribed = false;
-
-          makeButtonSubscribable(endpoint);
-        });
-    },
     disableAndSetBtnMessage: function(message) {
       if (this.isSubscribed === true) {
         document.querySelector(".notify button").innerHTML = "Subscribed";
@@ -209,13 +187,13 @@
       }
     },
     urlB64ToUint8Array: function(base64String) {
-      const padding = '='.repeat((4 - base64String.length % 4) % 4);
-      const base64 = (base64String + padding)
+      var padding = '='.repeat((4 - base64String.length % 4) % 4);
+      var base64 = (base64String + padding)
         .replace(/\-/g, '+')
         .replace(/_/g, '/');
 
-      const rawData = window.atob(base64);
-      const outputArray = new Uint8Array(rawData.length);
+      var rawData = window.atob(base64);
+      var outputArray = new Uint8Array(rawData.length);
 
       for (var i = 0; i < rawData.length; ++i) {
         outputArray[i] = rawData.charCodeAt(i);
@@ -224,19 +202,18 @@
     }
   }
 
-  const api = {
+  var api = {
     url: "localhost:3000",
     request: function() {
-      const request = new XMLHttpRequest();
+      var request = new XMLHttpRequest();
       var parser = new DOMParser();
       // Making the url and creating a GET request
-      const url = `index.html`;
+      var url = "index.html";
 
       request.open('GET', url, true);
 
       request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
-          console.log(request.responseText);
           var htmlResponse = parser.parseFromString(request.responseText, "text/html");
 
           if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore || htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
@@ -246,16 +223,16 @@
 
           if(htmlResponse.querySelector(".home h2").innerHTML != app.homeScore) {
             app.homeScore = htmlResponse.querySelector(".home h2").innerHTML;
-            document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The home team scored! It's ${app.homeScore}-${app.awayScore}`;
+            document.querySelector(".scoreAlert h2").innerHTML = "SCOOOORREEEE, The home team scored! It's " + app.homeScore + "-" + app.awayScore;
             document.querySelector(".home h2").innerHTML = app.homeScore;
             app.playSound("home");
-            app.notification(`SCOOOORREEEE, The home team scored! It's ${app.homeScore}-${app.awayScore}`);
+            app.notification("SCOOOORREEEE, The home team scored! It's " + app.homeScore + "-" + app.awayScore);
           } else if (htmlResponse.querySelector(".away h2").innerHTML != app.awayScore) {
             app.awayScore = htmlResponse.querySelector(".away h2").innerHTML;
-            document.querySelector(".scoreAlert h2").innerHTML = `SCOOOORREEEE, The away team scored! It's ${app.homeScore}-${app.awayScore}`;
+            document.querySelector(".scoreAlert h2").innerHTML = "SCOOOORREEEE, The away team scored! It's " + app.homeScore + "-" + app.awayScore;
             document.querySelector(".away h2").innerHTML = app.awayScore;
             app.playSound("away");
-            app.notification(`SCOOOORREEEE, The away team scored! It's ${app.homeScore}-${app.awayScore}`)
+            app.notification("SCOOOORREEEE, The away team scored! It's " + app.homeScore + "-" + app.awayScore)
           }
 
         } else {

@@ -1,8 +1,9 @@
 var express = require('express')
-let webPush = require("web-push");
-let atob = require('atob');
-let bodyParser = require('body-parser');
-let util = require('util');
+var atob = require('atob');
+var bodyParser = require('body-parser');
+var util = require('util');
+var webPush = require('web-push');
+var jsonfile = require('jsonfile')
 
 express()
   .use(express.static('static'))
@@ -19,9 +20,13 @@ express()
   //.use(notFound)
   .listen(3002)
 
-let subscribers = [];
-
 require('dotenv').config();
+
+let subscribers = [];
+var subscribersFile = `subscriptions/${process.env.JSON}.json`;
+subscribers = jsonfile.readFileSync(subscribersFile)
+console.log(subscribers);
+
 let VAPID_SUBJECT = process.env.VAPID_SUBJECT;
 let VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY;
 let VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
@@ -45,8 +50,6 @@ webPush.setVapidDetails(
     VAPID_PRIVATE_KEY
 );
 
-
-
 const score = {
   home: 0,
   away: 0
@@ -63,10 +66,10 @@ function scoreInput(req, res) {
 function scoreSubmit(req, res) {
   if (req.query.scored === "home") {
     score.home += 1;
-    pushNotif(`SCOOOORREEEE, The home team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal HomeTeam`);
+    pushNotif(`SCOOOORREEEE, The home team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal Home Team`);
   } else if (req.query.scored === "away") {
     score.away += 1;
-    pushNotif(`SCOOOORREEEE, The away team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal AwayTeam`)
+    pushNotif(`SCOOOORREEEE, The away team scored! It's ${score.home}-${score.away}`, `${process.env.HOST}`, `New Goal Away Team`)
   }
   res.render('submit.ejs', {score:score});
 }
@@ -86,6 +89,9 @@ function subscribe(req, res) {
  };
 
  subscribers.push(pushSubscription);
+
+ console.log(subscribers);
+ jsonfile.writeFileSync(subscribersFile, subscribers);
 
  res.json({mess:'Subscription accepted!'});
 }
