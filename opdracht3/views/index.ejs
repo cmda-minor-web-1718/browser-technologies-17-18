@@ -23,22 +23,22 @@
                 } %>
             </select>
 
-            <div>
+            <div class="extra">
                 <% for (var i in list.extra) {
                     if (list.extra.hasOwnProperty(i)) { %>
                 <div>
-                    <input type="checkbox" name="extra" value="<%= list.extra[i].price %>">
+                    <input class="extraIn" type="checkbox" name="extra" value="<%= list.extra[i].name %> <%= list.extra[i].price %>">
                     <label id="<%= list.extra[i].name %>" value="<%= list.extra[i].name %>"><%= list.extra[i].name %> <%= list.extra[i].price %></label>
                 </div> 
                 <%    }
                 } %>
             </div>
 
-            <div>
+            <div class="saus">
                 <% for (var i in list.saus) {
                     if (list.saus.hasOwnProperty(i)) { %>
                 <div>
-                    <input type="checkbox" name="saus" value="<%= list.saus[i].price %>">
+                    <input class="sausIn" type="checkbox" name="saus" value="<%= list.saus[i].name %> <%= list.saus[i].price %>">
                     <label id="<%= list.saus[i].name %>" value="<%= list.saus[i].name %>"><%= list.saus[i].name %> <%= list.saus[i].price %></label>
                 </div>
                 <%    }
@@ -49,5 +49,23 @@
     </form>
 
 </main>
+
+    <aside>
+        <h1 class="x">X</h1>
+        <h2>Boodschappenlijst</h2>
+        <div class="lijst"></div>
+        <div class="boodschappen">
+            <h3 class="titel">Brood</h3>
+        </div>
+        <div class="boodschappen">
+            <h3 class="titel">Kaas</h3>
+        </div>
+        <div class="boodschappenExtra">
+            <h3 class="titel">Extra</h3>
+        </div>
+        <div class="boodschappenSaus">
+            <h3 class="titel">Saus</h3>
+        </div>
+    </aside>
 
 <% include footer %>

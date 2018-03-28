@@ -1,6 +1,7 @@
 const ejs = require('ejs')
 const express = require('express')
 const bodyParser = require('body-parser')
+const ejsLint = require('ejs-lint');
 
 const app = express()
 
@@ -8,7 +9,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const port = 3000
+const port = 4000
 
 const tostiList = { 
     "broodsoort": {
@@ -139,9 +140,8 @@ app.post('/prijs', function(req, res) {
     }
 
     sum = sum + Number(broodworth) + Number(kaasworth)
-    console.log(sum)
-    console.log(req.body)
-    res.render('prijs.ejs', {prijs: sum})
+    console.log(typeof extra)
+    res.render('prijs.ejs', {prijs: sum, brood: broodsoort, kaas: kaassoort, extra: extra, saus: saus})
     // res.redirect('/')
 })
  
