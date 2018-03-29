@@ -1,6 +1,6 @@
 # Browser Technologies
 
-Link voor tijdens de beoordeling: [klik dan)](https://79a63b24.ngrok.io)
+Link voor tijdens de beoordeling: [klik dan](https://79a63b24.ngrok.io)
 
 ## Opdracht 3 - Progressive Enhanced Browser Technologies
 ### Tosti boodschappenlijst
