@@ -135,7 +135,6 @@
                 items.forEach(function(item) {
                     itemList.push(" " + item.innerHTML)
                 })
-                alert(itemList)
 
                 if(navigator.share !== undefined) {
 
