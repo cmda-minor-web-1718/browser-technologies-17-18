@@ -64,6 +64,11 @@ aside {
     font-family: sans-serif;
 }
 
+.asideExposed {
+    width: calc(70vw - 8em);
+    margin: 0 2em;
+}
+
 div span:hover {
     cursor: pointer;
 }
@@ -78,8 +83,8 @@ aside .x {
     margin: 0;
 }
 
-input.begone {
-    display: none;
+.begone {
+    display: none !important;
 }
 
 aside h2 {

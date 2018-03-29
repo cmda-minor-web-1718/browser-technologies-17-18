@@ -1,7 +1,8 @@
 const ejs = require('ejs')
 const express = require('express')
 const bodyParser = require('body-parser')
-const ejsLint = require('ejs-lint');
+const ejsLint = require('ejs-lint')
+const ngrok = require('ngrok')
 
 const app = express()
 
@@ -115,7 +116,7 @@ app.post('/prijs', function(req, res) {
         const waarde = extra.forEach(element => {
             let worth = Number(element.split('€')[1])
             sum += worth
-        });
+        })
 
     } else if (extra === undefined) {
 
@@ -130,7 +131,7 @@ app.post('/prijs', function(req, res) {
         const waarde = saus.forEach(element => {
             let worth = Number(element.split('€')[1])
             sum += worth
-        });
+        })
 
     } else if (saus === undefined) {}
 
