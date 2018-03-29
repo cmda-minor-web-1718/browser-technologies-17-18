@@ -1,13 +1,13 @@
 # Browser Technologies
 
-Link voor tijdens de beoordeling: (klik dan)[https://79a63b24.ngrok.io]
+Link voor tijdens de beoordeling: [klik dan)](https://79a63b24.ngrok.io)
 
 ## Opdracht 3 - Progressive Enhanced Browser Technologies
 ### Tosti boodschappenlijst
 Het doel van mijn web app is het samenstellen van een tosti boodschappenlijst. De data wordt gerendered op de server, en is dus beschikbaar op elke browser en op elk device. Er wordt geen gebruik gemaakt van javascript als dit niet ondersteund wordt. Wanneer de gebruiker dit niet heeft, zal er een simpele versie van de web app te zien zijn. Wanneer JS wel beschikbaar is dan krijgt de gebruiker feedback in het scherm zelf, zonder verder te klikken. Wanneer de gebruiker op een Android toestel zit, en gebruik maakt van Chrome 61 en hoger zal de gebruiker zijn persoonlijke lijst kunnen delen met de Web Share API.
 
 ## Installatie
-Om de website te gebruiken heb je Node JS nodig. Als je dit niet heb, download het dan (hier)[https://nodejs.org/en/]
+Om de website te gebruiken heb je Node JS nodig. Als je dit niet heb, download het dan [hier](https://nodejs.org/en/)
 
 Om de server op te starten, navigeer in de terminal naar de juiste map (opdracht 3), en voer het volgende commando uit:
 
