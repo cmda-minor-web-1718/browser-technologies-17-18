@@ -38,15 +38,5 @@ Mensen die een fysieke beperking hebben die navigeren veel met tabs door website
 ### Mensen met een oude browser / device
 Zoals ik al eerder aangaf is de website zonder Javascript te gebruiken. Dit zorgt ervoor dat de mensen die een hele oude browser of toestel gebruiken de website normaal kunnen gebruiken.
 
-Beoordelingscriteria
-- De code staat in een repository op GitHub
-- Er is een Readme toegevoegd met daarin beschreven:
-  - een beschrijving van de core functionality
-  - een beschrijving van de feature(s)/Browser Technologies
-  - welke browser de feature(s) wel/niet ondersteunen
-  - een beschrijving van de accessibility issues die zijn onderzocht
-- De demo is opgebouwd in 3 lagen, volgens het principe van Progressive Enhancement
-- De user experience van de demo is goed
-  - de leesbaarheidsregels zijn toegepast, contrast en kleuren kloppen
-  - het heeft een gebruiksvriendelijke interface, met gebruikmaking van affordance en feedback op de interactieve elementen
-- Student kan uitleggen wat Progressive Enhancement en Feature Detectie is en hoe dit toe te passen in Web Development
+## Progressive Enhancement
+Zoals ik eerder al heb beschreven werkt de website in elke browser op elk toestel. Wanneer Javascript beschikbaar is, dan opent er een klein deel van de website waar de gebruiker direct ziet wat hij aangevinkt heeft, en wat het totaalbedrag is van de boodschappen. Als de gebruiker van op een Android toestel zit en Chrome 61 of hoger heeft, kan hij zijn lijst delen met de Web Share API.
