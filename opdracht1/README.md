@@ -8,9 +8,11 @@ The web is for everyone. Learn about Progressive enhancement
 
 https://docs.google.com/presentation/d/19a6mIf_GFPngIeJZXZoi-1VCQU8enFxl8Ml8VSAJBjs/edit?usp=sharing
 
-### Opdracht 1.2 - Fork your OBA
+### Opdracht 1.2 - Fork your WAFS
 
-https://rick712.github.io/browser-technologies/opdracht1/oba/index.html
+I chose to use my WAFS project, since my Oba web app didn't contain that much information.
+
+[Link to WAFS website](https://rick712.github.io/browser-technologies/opdracht1/wafs/index.html)
 
 ## 1. Images
 The website contains no images (yet). 
