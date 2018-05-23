@@ -7,7 +7,7 @@
   
   body {
     background: #fff;
-    margin: 1em;
+    margin: 32px;
   }
   
   .acc-container {
@@ -15,11 +15,11 @@
   }
   .acc-container details {
     height: 100%;
-    margin: 1em 0;
+    margin: 16px 0;
   }
   .acc-container details summary {
     background-color: #eee;
-    padding: 2rem;
+    padding: 32px;
     font-size: 22px;
     font-weight: 700;
     transition: background-color .3s ease;
@@ -29,13 +29,13 @@
     background-color: #ccc;
   }
   .acc-container details summary ~ * {
-    padding: 0 2rem 0 2rem;
+    padding: 0 32px 0 32px;
   }
   .acc-container details summary ~ *:first-of-type {
-    padding-top: 2rem;
+    padding-top: 32px;
   }
   .acc-container details summary ~ *:last-of-type {
-    padding-bottom: 2rem;
+    padding-bottom: 32px;
   }
   .acc-container details summary ~ * {
     animation: sweep .5s ease-in;
@@ -54,4 +54,25 @@
       opacity: 1;
     }
   }
+
+@supports(padding: 1rem) {
+  .acc-container details summary~* {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .acc-container details summary~*:first-of-type {
+      padding-top: 2rem;
+  }
+
+  .acc-container details summary~*:last-of-type {
+    padding-bottom: 2rem;
+  }
+
+  .acc-container details summary {
+    padding: 2rem;
+  }
+  body {
+    margin: 2rem;
+  }
+}
   

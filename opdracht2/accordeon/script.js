@@ -1,14 +1,18 @@
 (function() {
-    const details = document.querySelectorAll('details')
+    var details = document.querySelectorAll('details')
 
-    details.forEach(detail => {
-        detail.addEventListener('click', function() {
-            console.log('all')
-            details.forEach(el => {
-                if (el !== this) {
-                    el.removeAttribute('open')
-                }
+    if (details.forEach) {
+
+        details.forEach(detail => {
+            detail.addEventListener('click', function() {
+                details.forEach(el => {
+                    if (el !== this) {
+                        el.removeAttribute('open')
+                    }
+                })
             })
         })
-    })
+    } else {
+        console.log('forEach is not supported')
+    }
   })()

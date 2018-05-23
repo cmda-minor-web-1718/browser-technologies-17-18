@@ -2,6 +2,7 @@
     //Set width to number of articles
     var elements = document.querySelectorAll('.carr-element').length,
         carrousel = document.querySelector('.carrousel');
+    carrousel.classList.remove('noJS')
     carrousel.style.width = elements / 2 * 10 + '0vw';
   
     // Interactive carrousel

@@ -10,12 +10,37 @@
 }
 
 .container .carrousel {
-    display: flex;
-    flex-wrap: no-wrap;
-    position: relative;
-    left: 0;
-    transition: 
-      left .5s ease-out;
+    display: block;
+}
+
+.right,
+.left {
+    display: none;
+}
+
+html body .container .noJS {
+    display: block;
+}
+
+html body .container .noJS ~ .arrows {
+    display: none;
+}
+
+@supports (display: flex) {
+
+    .container .carrousel {
+        display: flex;
+        flex-wrap: no-wrap;
+        position: relative;
+        left: 0;
+        transition: 
+        left .5s ease-out;
+    }
+
+    .right,
+    .left {
+        display: block;
+    }
 }
 
 .container .carrousel article {
