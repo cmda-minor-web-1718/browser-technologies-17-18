@@ -138,13 +138,16 @@
 
                 if(navigator.share !== undefined) {
 
-                    var shareBtn = document.querySelector('.share');
+                    const shareBtn = document.querySelector('.share');
                     shareBtn.classList.remove('begone')
 
                     shareBtn.addEventListener('click', clickEvent => {
                         clickEvent.preventDefault()
 
-                        navigator.share({title: document.title, text: "Boodschappen die je moet halen voor je tosti: " +  itemList})
+                        navigator.share({
+                            title: document.title, 
+                            text: "Boodschappen die je moet halen voor je tosti: " +  itemList
+                        })
                           .then(() => console.log('Successful share'),
                            error => console.log('Error sharing:', error));
                         });
