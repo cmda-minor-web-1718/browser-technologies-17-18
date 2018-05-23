@@ -45,5 +45,3 @@ To implement the feature detection, I mainly used [MDN web docs: Implementing fe
 ![The accordeon when JS is disabled](https://i.imgur.com/5wqzK63.png)
 
 The most advanced technique is the `.forEach()` function. .forEach() is pretty good supported in modern browsers according to [MDN Array.prototype.forEach()](https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-
-### Device lab test

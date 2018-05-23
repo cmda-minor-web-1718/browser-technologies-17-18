@@ -106,3 +106,7 @@ De Nokia telefoon viel terug op de normale versie. Ook hier had ik problemen met
 ![Foto van device lab test](https://i.imgur.com/5g7x7e3.png)
 
 ![Foto van device lab test](https://i.imgur.com/yPBVQg4.png)
+
+## Conclusie
+
+Ik ben best tevreden. Op alle devices (op een na) werkte de website overal. Wat mij nog opvalt tijdens het schrijven van dit, is dat sommige devices geen serif font gebruiken, maar een sans-serif font.
