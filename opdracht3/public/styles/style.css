@@ -53,15 +53,27 @@ aside {
     box-shadow: 0 4px 10px #616161;
 }
 
+aside .allProducts {
+    height: 20rem;
+    overflow: auto;
+}
+
 .boodschappenExtra div p,
 .boodschappenSaus div p {
     display: inline;
+}
+
+.titel,
+.boodschappenSaus div,
+.boodschappenExtra div {
+    margin: .5rem 0;
 }
 
 .boodschappenExtra div span,
 .boodschappenSaus div span {
     float: right;
     font-family: sans-serif;
+    margin-right: 1rem;
 }
 
 .asideExposed {
@@ -182,9 +194,39 @@ footer p a {
     h1 a {
         font-size: 4rem;
     }
+}
 
-    .total {
-        float: right;
+@media screen and (max-width: 62em) {
+    aside {
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+        top: 0;
+        margin-bottom: 4rem;
     }
 
+    aside h3 {
+        float: none;
+    }
+
+    main {
+        width: 90vw !important;
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+    form > section {
+        display: block;
+    }
+
+    form > section div {
+        margin: 2rem 0;
+    }
+
+    form > section div div {
+        margin: .5rem 0;
+    }
+    .asideExposed {
+        margin: 0 5vw;
+    }
 }

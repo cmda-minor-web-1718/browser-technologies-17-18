@@ -68,7 +68,7 @@ const tostiList = {
         },
         "ananas": {
             "name": "Ananas",
-            "price": "€1.95"
+            "price": "€2.00"
         },
         "augurk": {
             "name": "Augurk",
