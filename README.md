@@ -5,7 +5,7 @@ In het vak Browser Technologies leer je hoe je goede, robuuste, toegankelijke we
 
 Een van de mooiste principes van het web is dat het er echt is voor iedereen. Iedereen met een computer en een browser moet gebruik kunnen maken van het web. Het web is geen gecontroleerde (programmeer) omgeving. Je kan er gerust van uit gaan dat niemand precies hetzelfde te zien krijgt als wat jij ziet in jouw browser. Er zijn natuurlijk de technische beperkingen. Zoals - Afmetingen van de browser - Grootte van het apparaat - Manier van interactie - Kwaliteit van de hardware - Kwaliteit van het netwerk. En er zijn mensen. Allemaal verschillende mensen ...
 
-
+### Opdrachten 
 Het vak bestaat uit 3 opdrachten:
 
 1. [Het web is voor iedereen. Leren over Progressive enhancement](/opdracht1)
