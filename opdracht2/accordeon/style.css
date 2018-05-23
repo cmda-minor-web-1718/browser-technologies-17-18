@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    outline: 0;
+  }
+  
+  body {
+    background: #fff;
+    margin: 32px;
+  }
+  
+  .acc-container {
+    width: 100%;
+  }
+  .acc-container details {
+    height: 100%;
+    margin: 16px 0;
+  }
+  .acc-container details summary {
+    background-color: #eee;
+    padding: 32px;
+    font-size: 22px;
+    font-weight: 700;
+    transition: background-color .3s ease;
+  }
+  .acc-container details summary:hover {
+    cursor: pointer;
+    background-color: #ccc;
+  }
+  .acc-container details summary ~ * {
+    padding: 0 32px 0 32px;
+  }
+  .acc-container details summary ~ *:first-of-type {
+    padding-top: 32px;
+  }
+  .acc-container details summary ~ *:last-of-type {
+    padding-bottom: 32px;
+  }
+  .acc-container details summary ~ * {
+    animation: sweep .5s ease-in;
+  }
+  .acc-container details[open] summary {
+    background-color: #ccc;
+  }
+  .acc-container details[open] summary ~ * {
+    background-color: #eee;
+  }
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+@supports(padding: 1rem) {
+  .acc-container details summary~* {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .acc-container details summary~*:first-of-type {
+      padding-top: 2rem;
+  }
+
+  .acc-container details summary~*:last-of-type {
+    padding-bottom: 2rem;
+  }
+
+  .acc-container details summary {
+    padding: 2rem;
+  }
+  body {
+    margin: 2rem;
+  }
+}
+  

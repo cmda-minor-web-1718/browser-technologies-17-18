@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Blacksmith';
+    src: url('../font/The-Blacksmith.ttf');
+    font-family: 'Chocolatines';
+    src: url('../font/Chocolatines.ttf');
+}
+
+h1 {
+    font-family: 'Chocolatines', serif;
+    margin: 1em 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: serif;
+    margin: 1em 0 0 0;
+}
+
+h1 a {
+    color: black;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+p,
+label {
+    font-family: serif;
+}
+
+label {
+    margin-left: .5em;
+    font-size: 1.2rem;
+}
+
+main {
+    margin: 0 2em 4em 2em;
+}
+
+aside {
+    display: none;
+    position: fixed;
+    width: 30vw;
+    right: 0;
+    top: 3rem;
+    background-color: rgb(238, 238, 238);
+    padding: 2em;
+    box-shadow: 0 4px 10px #616161;
+}
+
+aside .allProducts {
+    height: 20rem;
+    overflow: auto;
+}
+
+.boodschappenExtra div p,
+.boodschappenSaus div p {
+    display: inline;
+}
+
+.titel,
+.boodschappenSaus div,
+.boodschappenExtra div {
+    margin: .5rem 0;
+}
+
+.boodschappenExtra div span,
+.boodschappenSaus div span {
+    float: right;
+    font-family: sans-serif;
+    margin-right: 1rem;
+}
+
+.asideExposed {
+    width: calc(70vw - 8em);
+    margin: 0 2em;
+}
+
+div span:hover {
+    cursor: pointer;
+}
+
+aside > div {
+    margin-top: .5em;
+}
+
+aside .x {
+    text-align: left;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.begone {
+    display: none !important;
+}
+
+aside h2 {
+    margin: 0;
+}
+
+aside.showAside {
+    display: block;
+}
+
+.pricing {
+    margin-top: 4em;
+}
+
+form > section {
+    display: flex;
+    margin: 2em 0;
+    justify-content: space-between;
+}
+
+input {
+    font-size: 1.5rem;
+}
+
+select {
+    font-size: .8rem;
+}
+
+main p {
+    margin: 0;
+    line-height: 1.5em;
+    font-size: 1.3rem;
+}
+
+form > section > div {
+    display: block;
+}
+
+.button {
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 1em 2em;
+    -webkit-appearance: button;
+}
+
+form > section > div > div {
+    margin: .1em 0;
+}
+
+.total {
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: black;
+    padding: .2em 0;
+}
+
+footer p,
+footer p a {
+    color: white;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .pricing h2 {
+        text-align: left;
+        font-family: 'Chocolatines';
+        margin: .3em 0;
+    }
+
+    @supports (display: flex) {
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            margin: 4em 0;
+        }
+
+        .pricing h2 {
+            text-align: center;
+        }
+    }
+
+    main {
+        margin: 0 5em;
+    }
+    h1 a {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 62em) {
+    aside {
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+        top: 0;
+        margin-bottom: 4rem;
+    }
+
+    aside h3 {
+        float: none;
+    }
+
+    main {
+        width: 90vw !important;
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+    form > section {
+        display: block;
+    }
+
+    form > section div {
+        margin: 2rem 0;
+    }
+
+    form > section div div {
+        margin: .5rem 0;
+    }
+    .asideExposed {
+        margin: 0 5vw;
+    }
+}

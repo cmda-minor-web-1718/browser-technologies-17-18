@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+.container {
+    margin-top: 1em;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container .carrousel {
+    display: block;
+}
+
+.right,
+.left {
+    display: none;
+}
+
+html body .container .noJS {
+    display: block;
+}
+
+html body .container .noJS ~ .arrows {
+    display: none;
+}
+
+@supports (display: flex) {
+
+    .container .carrousel {
+        display: flex;
+        flex-wrap: no-wrap;
+        position: relative;
+        left: 0;
+        transition: 
+        left .5s ease-out;
+    }
+
+    .right,
+    .left {
+        display: block;
+    }
+}
+
+.container .carrousel article {
+    width: 50vw;
+    padding: 1em;
+}
+
+.arrows a {
+    position: absolute;
+    font-size: 3rem;
+}
+  
+.right {
+    right: 1em;
+}
+  
+.left {
+    left: 1em;
+}
+  
+.arrows a:hover {
+    cursor: pointer;
+}

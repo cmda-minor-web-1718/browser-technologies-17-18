@@ -1,0 +1,47 @@
+<% include header %>
+    <main>
+        <h1><a href="/">Tosti boodschappenlijst</a></h1>
+
+        <section class="pricing">
+
+            <div>
+                <h2>Brood:</h2>
+                <p class="bread"><%= brood %></p>
+            </div>
+
+            <div>
+                <h2>Kaas</h2>
+                <p class="cheese"><%= kaas %></p>
+            </div>
+            
+            <div class="extra">
+                <h2>Extra</h2>
+                <% if (typeof extra == 'string') { %>
+                    <p><%= extra %></p>
+                <% } else if(typeof extra == 'object') { %>
+
+                        <% extra.forEach(function(extra) { %>
+                            <p><%= extra %></p>
+                        <% }) %>
+                <% } %>
+            </div>
+
+            <div class="sauce">
+                <h2>Saus</h2>
+                <% if (typeof saus == 'string') { %>
+                    <p><%= saus %></p>
+                <% } else if(typeof saus == 'object') { %>
+
+                        <% saus.forEach(function(saus) { %>
+                            <p><%= saus %></p>
+                        <% }) %>
+                <% } %>
+            </div>
+
+        </section>
+
+        <h3 class="total">Totaal: €<%= prijs %></h3>
+
+    </main>
+    
+<% include footer %>
