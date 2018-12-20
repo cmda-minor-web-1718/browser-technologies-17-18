@@ -24,7 +24,7 @@ Gebruik de Pattern Primer van de Voorhoede om de use case te ontwerpen. (bepaal 
   - met meest 'enhanced' versie is super vet, gaaf en h-e-l-e-maal te leuk om te gebruiken
 - Student kan de Basic functionaliteit van een use case doorgronden
 - Student kan uitleggen wat Progressive Enhancement en Feature Detectie is en hoe dit toe te passen in Web Development
-
+Hier staat de [Rubric](https://docs.google.com/spreadsheets/d/1HJ2N3t6Q0AIYxhNlSc0M7TkwHrFbD5ozY2Cyxdmo3LA/htmlview) voor de beoordeling van de eindopdracht.
 
 ### Usecases
 Kies één van deze use cases. Combineren mag ook. De aangeboden Browser Technologie is bedoeld als tip om te onderzoeken, je kan ook een andere kiezen.
